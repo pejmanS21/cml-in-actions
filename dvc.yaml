@@ -1,0 +1,17 @@
+stages:
+  get_data:
+    cmd: python get_data.py
+    deps:
+    - get_data.py
+
+  train:
+    cmd: python train.py
+    deps:
+    - get_data.py
+    - train.py
+    outs:
+    - results.png
+    - model-summary.txt
+    metrics:
+    - metrics.json:
+        cache: false

@@ -1,0 +1,4 @@
+/results.png
+/model-summary.txt
+*.ipynb
+.ipynb_checkpoints/
