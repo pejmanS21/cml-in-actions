@@ -27,5 +27,5 @@ jobs:
           # Add Model Summary to the report
           cat model-summary.txt >> report.md
 
-          cml publish results.png --md >> report.md
-          cml send-comment report.md
+          cml-publish results.png --md >> report.md
+          cml-send-comment report.md
