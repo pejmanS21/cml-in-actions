@@ -11,14 +11,14 @@ stages:
       size: 1380
     outs:
     - path: metrics.json
-      md5: 1ad484b5b08e4ed56554ad6eb39a322e
+      md5: 9c4a9daa0bc29534045bbef0b70c5504
       size: 82
     - path: model-summary.txt
       md5: 8e5a9166799f052c6dca9947616e77f4
       size: 818
     - path: results.png
-      md5: 922f68ca9abd82306f8f98398715c1b6
-      size: 27851
+      md5: fea42720ca1cdb1c25e4d28e8a7fc985
+      size: 30245
   get_data:
     cmd: python get_data.py
     deps:
