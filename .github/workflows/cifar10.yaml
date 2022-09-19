@@ -21,7 +21,7 @@ jobs:
           dvc metrics diff --show-md main > report.md
 
           # Add Model Summary to the report
-          cml-publish model-summary.txt --md >> rreport.md
+          cat model-summary.txt
 
           # Add figure to the report
           cml-publish results.png --md >> report.md
