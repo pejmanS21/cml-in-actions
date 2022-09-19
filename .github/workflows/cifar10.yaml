@@ -1,4 +1,4 @@
-name: farmers
+name: cml-in-actions
 
 on:
   push:
