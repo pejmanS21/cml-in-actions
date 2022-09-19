@@ -12,7 +12,7 @@ jobs:
     container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v2
-      - name: cml_run
+      - name: train-model
         run: |
           pip install -r requirements.txt
           dvc repro 
