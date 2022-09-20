@@ -9,14 +9,22 @@ on:
 jobs:
   run:
     runs-on: ubuntu-latest
-    container: docker://dvcorg/cml-py3:latest
     steps:
       - uses: actions/checkout@v3
         with:
           ref: ${{ github.event.pull_request.head.sha }}
+
+      - uses: iterative/setup-cml@v1
+ 
+      - uses: iterative/setup-dvc@v1
+ 
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
       - name: Train model
         env:
-          REPO_TOKEN: ${{ secrets.GIT_TOKEN }}
+          REPO_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           pip install -r requirements.txt
           dvc repro
@@ -31,5 +39,5 @@ jobs:
           echo '```' >> report.md
           echo >> report.md
 
-          cml-publish results.png --md >> report.md
-          cml-send-comment report.md
+          cml publish results.png --md >> report.md
+          cml send-comment report.md
