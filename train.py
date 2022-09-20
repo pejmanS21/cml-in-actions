@@ -3,6 +3,8 @@ import tensorflow as tf
 from tensorflow.keras import layers, models, datasets
 import matplotlib.pyplot as plt
 import json
+from pathlib import Path
+import datetime
 
 
 (train_images, train_labels), (test_images, test_labels) = datasets.cifar10.load_data()
@@ -32,8 +34,13 @@ model.compile(optimizer='adam',
               loss=tf.keras.losses.SparseCategoricalCrossentropy(from_logits=True),
               metrics=['accuracy'])
 
-history = model.fit(train_images, train_labels, epochs=10, 
-                    validation_data=(test_images, test_labels))
+log_dir = "logs/fit/" + datetime.datetime.now().strftime("%Y%m%d-%H%M%S")
+Path(log_dir).mkdir(parents=True, exist_ok=True)
+
+tensorboard_callback = tf.keras.callbacks.TensorBoard(log_dir=log_dir, histogram_freq=1)
+
+history = model.fit(train_images, train_labels, epochs=5, 
+                    validation_data=(test_images, test_labels), callbacks=[tensorboard_callback])
 
 plt.plot(history.history['accuracy'], label='accuracy')
 plt.plot(history.history['val_accuracy'], label = 'val_accuracy')

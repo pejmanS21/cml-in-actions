@@ -7,18 +7,18 @@ stages:
       md5: eb1168e4ad997fa7f5fbd19525a5b056
       size: 126
     - path: train.py
-      md5: e9e50a16e5038645cb7282f4d22f3a89
-      size: 1380
+      md5: 5e3d83ec9348f67b7cb0c50bf18a7150
+      size: 2049
     outs:
     - path: metrics.json
-      md5: 9c4a9daa0bc29534045bbef0b70c5504
+      md5: 95b0814dcd1dfbea08b0f48ddceadf77
       size: 82
     - path: model-summary.txt
-      md5: 8e5a9166799f052c6dca9947616e77f4
-      size: 818
+      md5: 0c0d377d1baab137c19033dcde788613
+      size: 1874
     - path: results.png
-      md5: fea42720ca1cdb1c25e4d28e8a7fc985
-      size: 30245
+      md5: 50640ec4f89034294e06839fb7672e33
+      size: 27994
   get_data:
     cmd: python get_data.py
     deps:
